@@ -7,7 +7,7 @@ module.exports = (passport) => {
     passport.use(new GoogleStrategy({
         clientID: "210454834521-286u1e3lqm43k609l09hg7sqmpnid28a.apps.googleusercontent.com",
         clientSecret: "KiTtxH3ovJo0Jq9QvcCNN1U9",
-        callbackURL: 'http://localhost:4000/google/callback'
+        callbackURL: 'https://college-project-madadi.herokuapp.com/google/callback'
     },
     
     async (accessToken, refreshToken, profile, done) => {
