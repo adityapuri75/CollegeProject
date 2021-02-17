@@ -4,6 +4,12 @@ const router = express.Router();
 const User = require("../Model/user");
 
 
+router.get("/:id",async function(req,res){
+   user = await User.find(req.params.id);
+   res.json(user);
+})
+
+
 router.post("/", async function (req, res) {
   const newUser = {
     name: req.body.displayName,
