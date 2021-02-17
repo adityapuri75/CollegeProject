@@ -7,7 +7,7 @@ const User = require("../Model/user");
 router.get("/:id",async function(req,res){
   console.log(req.params.id);
 
-   user = await User.findById(req.params.id);
+   user = await User.findOne({ googleId: req.params.id });
   console.log(user);
    res.json(user);
 })
