@@ -5,7 +5,10 @@ const User = require("../Model/user");
 
 
 router.get("/:id",async function(req,res){
-   user = await User.find(req.params.id);
+  console.log(req.params.id);
+
+   user = await User.findById(req.params.id);
+  console.log(user);
    res.json(user);
 })
 
