@@ -3,13 +3,14 @@ const express = require("express");
 const Classes = require("../Model/classes");
 const router = express.Router();
 
-router.get("/section/:section/:date", async function (req, res) {
+router.get("/section/:section/:group/:date", async function (req, res) {
   console.log(req.params.section);
   console.log(req.params.date);
 
   var timetable = await Classes.find({
     section: req.params.section,
     date: req.params.date,
+    group:req.params.group
   });
   res.send(timetable);
 });
