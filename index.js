@@ -4,6 +4,7 @@ const passport = require("passport");
 
 const userRoute = require("./Classes/Routes/users");
 const classRoute = require("./Classes/Routes/classes");
+const notification = require("./oneSignal/automate");
 
 const connectDB = require("./config/db");
 
@@ -18,6 +19,8 @@ app.use(bodyParser.json());
 
 app.use("/timetable", classRoute);
 app.use("/user", userRoute);
+app.use("/notification", notification);
+
 
 
 app.use(passport.initialize());
