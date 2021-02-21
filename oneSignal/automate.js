@@ -31,7 +31,7 @@ res.send(timetable);
 
   var localTime ="0"+ (d.getHours() %12) + ":" + d.getMinutes();
 
-  if(d.getHours>=9 && d.getHours<=17){
+  if(d.getHours()>=9 && d.getHours()<=17){
 
     timetable.forEach( (element) =>  {
       var time = element.time.toString();
