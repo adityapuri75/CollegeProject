@@ -43,8 +43,9 @@ router.get("/", async function (req, res) {
   const notifications = require("./notification");
 res.send(timetable);
 //  var min = d.getUTCMinutes
-
-  var localTime = "0"+(hoursIST %12) + ":" + (minutesIST);
+  var localTime;
+  
+  (minutesIST=="0")? ( localTime = "0"+(hoursIST %12) + ":" + (minutesIST)+"0"): (localTime = "0"+(hoursIST %12) + ":" + (minutesIST));
   // var localTimer= (((d.getUTCHours() %12) *60) + d.getUTCMinutes());
   
 
@@ -53,6 +54,7 @@ res.send(timetable);
     timetable.forEach( (element) =>  {
       var time = element.time.toString();
       var dataTime =  time.substring(0, time.indexOf(" "));
+      console.log(dataTime)
       console.log(dataTime,localTime,day,element.date);
       if (localTime == dataTime && day == element.date) {
         var message = {
