@@ -4,7 +4,21 @@ const router = express.Router();
 
 router.get("/", async function (req, res) {
 
-  
+  var currentTime = new Date();
+
+  var currentOffset = currentTime.getTimezoneOffset();
+
+  var ISTOffset = 330; // IST offset UTC +5:30
+
+  var ISTTime = new Date(
+    currentTime.getTime() + (ISTOffset + currentOffset) * 60000
+  );
+
+  // ISTTime now represents the time in IST coordinates
+
+  var hoursIST = ISTTime.getHours();
+  var minutesIST = ISTTime.getMinutes();
+
   var d = new Date();
   var n = d.getDay();
   var day;
@@ -28,8 +42,11 @@ router.get("/", async function (req, res) {
   var timetable = await Classes.find();
   const notifications = require("./notification");
 res.send(timetable);
+//  var min = d.getUTCMinutes
 
-  var localTime ="0"+ (d.getHours() %12) + ":" + d.getMinutes();
+  var localTime = "0"+(hoursIST %12) + ":" + (minutesIST);
+  // var localTimer= (((d.getUTCHours() %12) *60) + d.getUTCMinutes());
+  
 
   if(d.getHours()>=9 && d.getHours()<=17){
 

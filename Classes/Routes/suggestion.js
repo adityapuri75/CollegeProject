@@ -12,13 +12,13 @@ router.get("/",async function (req, res) {
 });
 
 router.post("/", function (req, res) {
-  var feedback = new Suggetion({
+  var feedback =new Suggetion({
     section: req.body.section,
     group: req.body.group,
     feedback: req.body.feedback,
   });
-
-  feedback.save();
+   feedback.save();
+ res.json(feedback);
 });
 
 module.exports = router;
