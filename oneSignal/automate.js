@@ -41,7 +41,7 @@ router.get("/", async function (req, res) {
 
   var timetable = await Classes.find();
   const notifications = require("./notification");
-res.send(timetable);
+// res.send(timetable);
 //  var min = d.getUTCMinutes
   var localTime;
   
