@@ -49,10 +49,9 @@ router.get("/", async function (req, res) {
   (minutesIST=="0")? ( localTime = "0"+(hoursIST %12) + ":" + (minutesIST)+"0"): (localTime = "0"+(hoursIST %12) + ":" + (minutesIST));
   // var localTimer= (((d.getUTCHours() %12) *60) + d.getUTCMinutes());
   
-
+    console.log(d.getHours())
   if(d.getHours()>=9 && d.getHours()<=17){
-
-    timetable.forEach( (element) =>  {
+      timetable.forEach( (element) =>  {
       var time = element.time.toString();
       var dataTime =  time.substring(0, time.indexOf(" "));
       console.log(dataTime)
