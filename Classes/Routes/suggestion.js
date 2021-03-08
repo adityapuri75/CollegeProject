@@ -43,4 +43,11 @@ router.get("/all",async function (req, res) {
   }
 });
 
+router.delete("/delete/:id",async function (req, res) {
+  var id=req.params.id
+  suggestion.findByIdAndDelete(id,function(err,data){
+    res.send("Delete Request Sucess");
+  })
+});
+
 module.exports = router;
